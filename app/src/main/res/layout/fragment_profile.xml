@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:gravity="top">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_profile"
+        android:layout_gravity="center"
+        android:layout_marginTop="20sp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:padding="5sp"
+        android:text="My Profile"
+        android:layout_gravity="center" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="My preferences"
+        android:layout_marginStart="5sp"
+        android:layout_marginEnd="5sp"
+        android:layout_marginBottom="5sp"
+        android:padding="10sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/textview_bg" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Not sure how your next holiday should look like?\nClick the button below to get inspired!"
+        android:fontFamily="@font/unicodearialr"
+        android:padding="10sp"
+        android:gravity="center"
+        android:layout_marginEnd="5sp"
+        android:layout_marginStart="5sp"
+        android:id="@+id/preferences_description"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="350sp"
+        android:orientation="vertical">
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/unicodearialr"
+        android:id="@+id/list_preferences"
+        android:background="@drawable/list_shape"
+        android:layout_marginStart="5sp"
+        android:layout_marginEnd="5sp">
+    </ListView>
+    </LinearLayout>
+    <Button
+        android:id="@+id/add_modify_preferences"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Add Preferences"
+        android:layout_gravity="center"
+        android:fontFamily="@font/unicodearialr"
+        android:onClick="openInspirations"
+        android:padding="20sp"
+        android:layout_marginTop="20sp"
+        android:layout_marginBottom="20sp"
+        android:background="@drawable/textview_bg"
+        />
+
+</LinearLayout>
