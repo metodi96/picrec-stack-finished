@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "723842834665",
+    "firebase_url": "https://picrecstack.firebaseio.com",
+    "project_id": "picrecstack",
+    "storage_bucket": "picrecstack.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:723842834665:android:29dd543f65ce090e",
+        "android_client_info": {
+          "package_name": "com.example.picrecstack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "723842834665-hahn5ns35d7etnanvofvo0k8bagv3ljp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm6iIPO4T56tTrnuIJHvUi8uO6WvqCoIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "723842834665-hahn5ns35d7etnanvofvo0k8bagv3ljp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

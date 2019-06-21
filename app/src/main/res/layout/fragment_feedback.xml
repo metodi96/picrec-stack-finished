@@ -1,13 +1,700 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@android:color/holo_red_dark">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:gravity="top"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:padding="5sp"
         android:text="Feedback"
+        android:layout_marginTop="20sp"
         android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_marginBottom="20sp"
+        android:layout_gravity="center" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
 
-</RelativeLayout>
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/layout_bg"
+        android:layout_marginStart="5sp"
+        android:layout_marginEnd="5sp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="left"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginTop="30sp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. Name: "
+                android:layout_gravity="center"
+                android:layout_marginStart="20sp"
+                android:textSize="20sp"/>
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20sp"
+                android:layout_marginEnd="20sp"
+                android:id="@+id/insert_name"
+                android:padding="10sp"
+                android:background="@drawable/textview_bg"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. Gender:*"
+                android:layout_gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:id="@+id/gender_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:id="@+id/gender_male"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:id="@+id/gender_female"/>
+            </RadioGroup>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3. Age group:*"
+                android:layout_gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/agegroup_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0 - 20"
+                    android:id="@+id/first_agegroup"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="21 - 30"
+                    android:id="@+id/second_agegroup"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="31 - 40"
+                    android:id="@+id/third_agegroup"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="41 - 50"
+                    android:id="@+id/fourth_agegroup"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="51 - 60"
+                    android:id="@+id/fifth_agegroup"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="61 or older"
+                    android:id="@+id/sixth_agegroup"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4. The generated profile matched my choices.*"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/generated_profile_match_choices_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Agree"
+                    android:id="@+id/first_generated_profile_match_choices"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree"
+                    android:id="@+id/second_generated_profile_match_choices"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neither agree nor disagree"
+                    android:id="@+id/third_generated_profile_match_choices"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disagree"
+                    android:id="@+id/fourth_generated_profile_match_choices"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Disagree"
+                    android:id="@+id/fifth_generated_profile_match_choices"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Applicable"
+                    android:id="@+id/sixth_generated_profile_match_choices"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5. The choice of images appealed to me.*"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/choice_images_appeal_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Agree"
+                    android:id="@+id/first_choice_images_appeal"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree"
+                    android:id="@+id/second_choice_images_appeal"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neither agree nor disagree"
+                    android:id="@+id/third_choice_images_appeal"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disagree"
+                    android:id="@+id/fourth_choice_images_appeal"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Disagree"
+                    android:id="@+id/fifth_choice_images_appeal"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Applicable"
+                    android:id="@+id/sixth_choice_images_appeal"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="6. I enjoyed using the swiping feature to indicate what I like or do not like.*"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/manipulated_pictures_enjoy_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Agree"
+                    android:id="@+id/first_manipulated_pictures_enjoy"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree"
+                    android:id="@+id/second_manipulated_pictures_enjoy"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neither agree nor disagree"
+                    android:id="@+id/third_manipulated_pictures_enjoy"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disagree"
+                    android:id="@+id/fourth_manipulated_pictures_enjoy"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Disagree"
+                    android:id="@+id/fifth_manipulated_pictures_enjoy"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Applicable"
+                    android:id="@+id/sixth_manipulated_pictures_enjoy"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="7. I found it easy to tell this recommender system what I like and dislike.*"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/allowed_like_dislike_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Agree"
+                    android:id="@+id/first_allowed_like_dislike"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree"
+                    android:id="@+id/second_allowed_like_dislike"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neither agree nor disagree"
+                    android:id="@+id/third_allowed_like_dislike"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disagree"
+                    android:id="@+id/fourth_allowed_like_dislike"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Disagree"
+                    android:id="@+id/fifth_allowed_like_dislike"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Applicable"
+                    android:id="@+id/sixth_allowed_like_dislike"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="8. This recommender system would influence my selection of items.*"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/happy_with_generated_profile_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Agree"
+                    android:id="@+id/first_happy_with_generated_profile"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree"
+                    android:id="@+id/second_happy_with_generated_profile"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neither agree nor disagree"
+                    android:id="@+id/third_happy_with_generated_profile"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disagree"
+                    android:id="@+id/fourth_happy_with_generated_profile"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Disagree"
+                    android:id="@+id/fifth_happy_with_generated_profile"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Applicable"
+                    android:id="@+id/sixth_happy_with_generated_profile"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="9. The layout of this recommender system inteface is attractive.*"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/attractive_layout_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Agree"
+                    android:id="@+id/first_attractive_layout"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree"
+                    android:id="@+id/second_attractive_layout"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neither agree nor disagree"
+                    android:id="@+id/third_attractive_layout"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disagree"
+                    android:id="@+id/fourth_attractive_layout"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Disagree"
+                    android:id="@+id/fifth_attractive_layout"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Applicable"
+                    android:id="@+id/sixth_attractive_layout"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10. I became familiar with this recommender system very quickly.*"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/familiar_with_system_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Agree"
+                    android:id="@+id/first_familiar_with_system"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree"
+                    android:id="@+id/second_familiar_with_system"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neither agree nor disagree"
+                    android:id="@+id/third_familiar_with_system"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disagree"
+                    android:id="@+id/fourth_familiar_with_system"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Disagree"
+                    android:id="@+id/fifth_familiar_with_system"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Applicable"
+                    android:id="@+id/sixth_familiar_with_system"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="11. I feel in control of telling this recommender system what I want.*"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/in_control_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Agree"
+                    android:id="@+id/first_in_control"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree"
+                    android:id="@+id/second_in_control"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neither agree nor disagree"
+                    android:id="@+id/third_in_control"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disagree"
+                    android:id="@+id/fourth_in_control"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Disagree"
+                    android:id="@+id/fifth_in_control"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Applicable"
+                    android:id="@+id/sixth_in_control"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12. I understood why the profile was generated the way it was.*"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/understood_profile_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Agree"
+                    android:id="@+id/first_understood_profile"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree"
+                    android:id="@+id/second_understood_profile"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neither agree nor disagree"
+                    android:id="@+id/third_understood_profile"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disagree"
+                    android:id="@+id/fourth_understood_profile"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Disagree"
+                    android:id="@+id/fifth_understood_profile"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Applicable"
+                    android:id="@+id/sixth_understood_profile"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13. Overall, I am satisfied with this system.*"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/satisfaction_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Agree"
+                    android:id="@+id/first_satisfaction"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree"
+                    android:id="@+id/second_satisfaction"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neither agree nor disagree"
+                    android:id="@+id/third_satisfaction"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disagree"
+                    android:id="@+id/fourth_satisfaction"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Disagree"
+                    android:id="@+id/fifth_satisfaction"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Applicable"
+                    android:id="@+id/sixth_satisfaction"/>
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="14. I will use this method again.*"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:textSize="20sp"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="left"
+                android:layout_gravity="center"
+                android:orientation="vertical"
+                android:id="@+id/use_in_the_future_group">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Agree"
+                    android:id="@+id/first_use_in_the_future"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Agree"
+                    android:id="@+id/second_use_in_the_future"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Neither agree nor disagree"
+                    android:id="@+id/third_use_in_the_future"/>
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Disagree"
+                    android:id="@+id/fourth_use_in_the_future"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Strongly Disagree"
+                    android:id="@+id/fifth_use_in_the_future"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Applicable"
+                    android:id="@+id/sixth_use_in_the_future"/>
+            </RadioGroup>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="200sp"
+                android:layout_marginStart="20sp"
+                android:layout_marginTop="20sp"
+                android:layout_marginEnd="20sp"
+                android:gravity="start"
+                android:id="@+id/insert_feedback"
+                android:hint="If you'd like to add something else, please do so here..."
+                android:background="@drawable/textview_bg"
+                android:padding="10sp"/>
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Submit Feedback"
+                android:background="@drawable/textview_bg"
+                android:layout_gravity="center"
+                android:layout_marginTop="40sp"
+                android:layout_marginBottom="50sp"
+                android:padding="10sp"
+                android:id="@+id/submit_feedback"/>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

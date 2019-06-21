@@ -9,7 +9,7 @@
         android:id="@+id/picture_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/sun2"
+        android:src="@drawable/sun1"
         android:scaleType="centerCrop"
         android:background="@drawable/rounded_shape"
         android:outlineProvider="background"

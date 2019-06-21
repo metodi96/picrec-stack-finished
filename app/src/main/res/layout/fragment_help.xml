@@ -1,13 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:background="@android:color/holo_purple">
-
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:gravity="top">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:padding="5sp"
         android:text="Help"
+        android:layout_marginTop="20sp"
         android:textSize="30sp"
-        android:layout_centerInParent="true"/>
+        android:layout_marginBottom="20sp"
+        android:layout_gravity="center" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Rules"
+        android:textSize="25sp"
+        android:layout_marginStart="5sp"
+        android:layout_marginEnd="5sp"
+        android:layout_marginBottom="5sp"
+        android:padding="10sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20sp"
+        android:background="@drawable/textview_bg" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1. You a card stack containing all the images you will evaluate."
+        android:fontFamily="@font/unicodearialr"
+        android:padding="10sp"
+        android:gravity="center"
+        android:layout_marginEnd="5sp"
+        android:layout_marginStart="5sp"
+        android:id="@+id/rules_description1" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2. Swipe right to like a picture, swipe left to indicate that you don't like it."
+        android:fontFamily="@font/unicodearialr"
+        android:padding="10sp"
+        android:gravity="center"
+        android:layout_marginEnd="5sp"
+        android:layout_marginStart="5sp"
+        android:id="@+id/rules_description2" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="2.1. Should you think you have made a mistake while swiping you can reset everything by clicking on the middle icon below the stack."
+        android:fontFamily="@font/unicodearialr"
+        android:padding="10sp"
+        android:gravity="center"
+        android:layout_marginEnd="5sp"
+        android:layout_marginStart="5sp"
+        android:id="@+id/rules_description3" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="3. Once you have finished swiping you will be automatically directed to your generated profile."
+        android:fontFamily="@font/unicodearialr"
+        android:padding="10sp"
+        android:gravity="center"
+        android:layout_marginEnd="5sp"
+        android:layout_marginStart="5sp"
+        android:id="@+id/rules_description4" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="4. If you do not like the results, simply click on Modify preferences and you can once again swipe the pictures"
+        android:fontFamily="@font/unicodearialr"
+        android:padding="10sp"
+        android:gravity="center"
+        android:layout_marginEnd="5sp"
+        android:layout_marginStart="5sp"
+        android:id="@+id/rules_description5" />
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_forward_green_32dp"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="20sp"
+            android:text="Go to My Profile"
+            android:id="@+id/go_to_profile"
+            android:background="@drawable/textview_bg"
+            android:padding="10sp"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_back_green_32dp"/>
+    </LinearLayout>
+
+</LinearLayout>
