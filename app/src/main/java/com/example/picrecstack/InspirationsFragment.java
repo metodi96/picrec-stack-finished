@@ -141,28 +141,6 @@ public class InspirationsFragment extends Fragment {
         }
     }
 
-    /*
-    public void resetPoints() {
-        Button resetPoints = getView().findViewById(R.id.reset);
-        resetPoints.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                   for (Map.Entry<String, Integer> entry : rolesToPoints.entrySet()) {
-                        String key = entry.getKey();
-                        rolesToPoints.put(key, 50);
-                    }
-                    InspirationsFragment fragment = (InspirationsFragment)
-                            getFragmentManager().findFragmentById(R.id.fragment_container);
-
-                    getFragmentManager().beginTransaction()
-                            .detach(fragment)
-                            .attach(fragment)
-                            .commit();
-                }
-            });
-    }*/
-
     public void savePoints(int counter) {
         if(counter >= rolesToPoints.size()) {
             modifyHashmap(rolesToPoints, points);

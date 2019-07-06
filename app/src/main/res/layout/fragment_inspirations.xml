@@ -33,7 +33,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="5sp"
             android:layout_weight="1"
-            android:background="#0000"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:layout_marginEnd="50sp"
             android:src="@drawable/unlike_64" />
 
@@ -43,9 +43,10 @@
             android:layout_height="match_parent"
             android:layout_marginStart="5sp"
             android:layout_weight="1"
-            android:background="#0000"
             android:layout_marginEnd="50sp"
-            android:src="@drawable/refresh" />
+            android:src="@drawable/refresh"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            />
 
         <ImageButton
             android:id="@+id/like"
@@ -53,7 +54,7 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="5sp"
             android:layout_weight="1"
-            android:background="#0000"
+            android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/like_64" />
     </LinearLayout>
 

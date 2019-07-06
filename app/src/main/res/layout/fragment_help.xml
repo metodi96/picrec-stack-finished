@@ -102,7 +102,7 @@
             android:layout_marginBottom="20sp"
             android:text="Go to My Profile"
             android:id="@+id/go_to_profile"
-            android:background="@drawable/textview_bg"
+            android:background="@drawable/button"
             android:padding="10sp"/>
         <ImageView
             android:layout_width="wrap_content"

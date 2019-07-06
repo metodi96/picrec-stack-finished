@@ -1,7 +1,6 @@
 package com.example.picrecstack;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -14,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -29,26 +29,26 @@ public class FeedbackFragment extends Fragment {
 
     private RadioButton ageGroup;
     private String ageGroupChoice;
-    private RadioButton generatedProfileMatchChoices;
-    private String generatedProfileMatchChoicesChoice;
-    private RadioButton choiceImagesAppeal;
-    private String choiceImagesAppealChoice;
-    private RadioButton manipulatedPicturesEnjoy;
-    private String manipulatedPicturesEnjoyChoice;
-    private RadioButton allowedLikeDislike;
-    private String allowedLikeDislikeChoice;
-    private RadioButton happyWithGeneratedProfile;
-    private String happyWithGeneratedProfileChoice;
+    private RadioButton attractiveImages;
+    private String attractiveImagesChoice;
+    private RadioButton generatedProfileMatchedChoices;
+    private String generatedProfileMatchedChoicesChoice;
+    private RadioButton swipingEnjoy;
+    private String swipingEnjoyChoice;
+    private RadioButton buttonsEnjoy;
+    private String buttonsEnjoyChoice;
+    private RadioButton swipingPrefer;
+    private String swipingPreferChoice;
+    private RadioButton easyToTell;
+    private String easyToTellChoice;
     private RadioButton attractiveLayout;
     private String attractiveLayoutChoice;
-    private RadioButton easyToModifyProfile;
-    private String easyToModifyProfileChoice;
+    private RadioButton adequateLayout;
+    private String adequateLayoutChoice;
     private RadioButton familiarWithSystem;
     private String familiarWithSystemChoice;
     private RadioButton inControl;
     private String inControlChoice;
-    private RadioButton understoodProfile;
-    private String understoodProfileChoice;
     private RadioButton satisfaction;
     private String satisfactionChoice;
     private RadioButton useInTheFuture;
@@ -58,17 +58,9 @@ public class FeedbackFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_feedback, container, false);
-        final EditText editTextFeedback = v.findViewById(R.id.insert_feedback);
-        editTextFeedback.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    hideKeyboard(v);
-                }
-            }
-        });
-        final EditText editTextName = v.findViewById(R.id.insert_name);
-        editTextName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        final ScrollView scrollView = v.findViewById(R.id.scrollView);
+        final EditText previousRecommenders = v.findViewById(R.id.previous_recommenders);
+        previousRecommenders.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
@@ -124,150 +116,180 @@ public class FeedbackFragment extends Fragment {
             }
         });
 
-        final RadioGroup generatedProfileMatchChoicesGroup = v.findViewById(R.id.generated_profile_match_choices_group);
-        generatedProfileMatchChoicesGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        final RadioGroup attractiveImagesGroup = v.findViewById(R.id.attractive_images_group);
+        attractiveImagesGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                generatedProfileMatchChoices = generatedProfileMatchChoicesGroup.findViewById(checkedId);
+                attractiveImages = attractiveImagesGroup.findViewById(checkedId);
 
                 switch (checkedId) {
-                    case R.id.first_generated_profile_match_choices:
-                        generatedProfileMatchChoicesChoice = generatedProfileMatchChoices.getText().toString();
+                    case R.id.first_attractive_images:
+                        attractiveImagesChoice = attractiveImages.getText().toString();
                         break;
-                    case R.id.second_generated_profile_match_choices:
-                        generatedProfileMatchChoicesChoice = generatedProfileMatchChoices.getText().toString();
+                    case R.id.second_attractive_images:
+                        attractiveImagesChoice = attractiveImages.getText().toString();
                         break;
-                    case R.id.third_generated_profile_match_choices:
-                        generatedProfileMatchChoicesChoice = generatedProfileMatchChoices.getText().toString();
+                    case R.id.third_attractive_images:
+                        attractiveImagesChoice = attractiveImages.getText().toString();
                         break;
-                    case R.id.fourth_generated_profile_match_choices:
-                        generatedProfileMatchChoicesChoice = generatedProfileMatchChoices.getText().toString();
+                    case R.id.fourth_attractive_images:
+                        attractiveImagesChoice = attractiveImages.getText().toString();
                         break;
-                    case R.id.fifth_generated_profile_match_choices:
-                        generatedProfileMatchChoicesChoice = generatedProfileMatchChoices.getText().toString();
+                    case R.id.fifth_attractive_images:
+                        attractiveImagesChoice = attractiveImages.getText().toString();
                         break;
-                    case R.id.sixth_generated_profile_match_choices:
-                        generatedProfileMatchChoicesChoice = generatedProfileMatchChoices.getText().toString();
+                    case R.id.sixth_attractive_images:
+                        attractiveImagesChoice = attractiveImages.getText().toString();
                         break;
                     default: break;
                 }
             }
         });
 
-        final RadioGroup choiceImagesAppealGroup = v.findViewById(R.id.choice_images_appeal_group);
-        choiceImagesAppealGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        final RadioGroup generatedProfileMatchedChoicesGroup = v.findViewById(R.id.generated_profile_matched_choices_group);
+        generatedProfileMatchedChoicesGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                choiceImagesAppeal = choiceImagesAppealGroup.findViewById(checkedId);
+                generatedProfileMatchedChoices = generatedProfileMatchedChoicesGroup.findViewById(checkedId);
 
                 switch (checkedId) {
-                    case R.id.first_choice_images_appeal:
-                        choiceImagesAppealChoice = choiceImagesAppeal.getText().toString();
+                    case R.id.first_generated_profile_matched_choices:
+                        generatedProfileMatchedChoicesChoice = generatedProfileMatchedChoices.getText().toString();
                         break;
-                    case R.id.second_choice_images_appeal:
-                        choiceImagesAppealChoice = choiceImagesAppeal.getText().toString();
+                    case R.id.second_generated_profile_matched_choices:
+                        generatedProfileMatchedChoicesChoice = generatedProfileMatchedChoices.getText().toString();
                         break;
-                    case R.id.third_choice_images_appeal:
-                        choiceImagesAppealChoice = choiceImagesAppeal.getText().toString();
+                    case R.id.third_generated_profile_matched_choices:
+                        generatedProfileMatchedChoicesChoice = generatedProfileMatchedChoices.getText().toString();
                         break;
-                    case R.id.fourth_choice_images_appeal:
-                        choiceImagesAppealChoice = choiceImagesAppeal.getText().toString();
+                    case R.id.fourth_generated_profile_matched_choices:
+                        generatedProfileMatchedChoicesChoice = generatedProfileMatchedChoices.getText().toString();
                         break;
-                    case R.id.fifth_choice_images_appeal:
-                        choiceImagesAppealChoice = choiceImagesAppeal.getText().toString();
+                    case R.id.fifth_generated_profile_matched_choices:
+                        generatedProfileMatchedChoicesChoice = generatedProfileMatchedChoices.getText().toString();
                         break;
-                    case R.id.sixth_choice_images_appeal:
-                        choiceImagesAppealChoice = choiceImagesAppeal.getText().toString();
+                    case R.id.sixth_generated_profile_matched_choices:
+                        generatedProfileMatchedChoicesChoice = generatedProfileMatchedChoices.getText().toString();
                         break;
                     default: break;
                 }
             }
         });
 
-        final RadioGroup manipulatedPicturesEnjoyGroup = v.findViewById(R.id.manipulated_pictures_enjoy_group);
-        manipulatedPicturesEnjoyGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        final RadioGroup swipingEnjoyGroup = v.findViewById(R.id.swiping_enjoy_group);
+        swipingEnjoyGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                manipulatedPicturesEnjoy = manipulatedPicturesEnjoyGroup.findViewById(checkedId);
+                swipingEnjoy = swipingEnjoyGroup.findViewById(checkedId);
 
                 switch (checkedId) {
-                    case R.id.first_manipulated_pictures_enjoy:
-                        manipulatedPicturesEnjoyChoice = manipulatedPicturesEnjoy.getText().toString();
+                    case R.id.first_swiping_enjoy:
+                        swipingEnjoyChoice = swipingEnjoy.getText().toString();
                         break;
-                    case R.id.second_manipulated_pictures_enjoy:
-                        manipulatedPicturesEnjoyChoice = manipulatedPicturesEnjoy.getText().toString();
+                    case R.id.second_swiping_enjoy:
+                        swipingEnjoyChoice = swipingEnjoy.getText().toString();
                         break;
-                    case R.id.third_manipulated_pictures_enjoy:
-                        manipulatedPicturesEnjoyChoice = manipulatedPicturesEnjoy.getText().toString();
+                    case R.id.third_swiping_enjoy:
+                        swipingEnjoyChoice = swipingEnjoy.getText().toString();
                         break;
-                    case R.id.fourth_manipulated_pictures_enjoy:
-                        manipulatedPicturesEnjoyChoice = manipulatedPicturesEnjoy.getText().toString();
+                    case R.id.fourth_swiping_enjoy:
+                        swipingEnjoyChoice = swipingEnjoy.getText().toString();
                         break;
-                    case R.id.fifth_manipulated_pictures_enjoy:
-                        manipulatedPicturesEnjoyChoice = manipulatedPicturesEnjoy.getText().toString();
+                    case R.id.fifth_swiping_enjoy:
+                        swipingEnjoyChoice = swipingEnjoy.getText().toString();
                         break;
-                    case R.id.sixth_manipulated_pictures_enjoy:
-                        manipulatedPicturesEnjoyChoice = manipulatedPicturesEnjoy.getText().toString();
+                    case R.id.sixth_swiping_enjoy:
+                        swipingEnjoyChoice = swipingEnjoy.getText().toString();
                         break;
                     default: break;
                 }
             }
         });
 
-        final RadioGroup allowedLikeDislikeGroup = v.findViewById(R.id.allowed_like_dislike_group);
-        allowedLikeDislikeGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        final RadioGroup buttonsEnjoyGroup = v.findViewById(R.id.swiping_enjoy_group);
+        buttonsEnjoyGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                allowedLikeDislike = allowedLikeDislikeGroup.findViewById(checkedId);
+                buttonsEnjoy = buttonsEnjoyGroup.findViewById(checkedId);
 
                 switch (checkedId) {
-                    case R.id.first_allowed_like_dislike:
-                        allowedLikeDislikeChoice = allowedLikeDislike.getText().toString();
+                    case R.id.first_buttons_enjoy:
+                        buttonsEnjoyChoice = buttonsEnjoy.getText().toString();
                         break;
-                    case R.id.second_allowed_like_dislike:
-                        allowedLikeDislikeChoice = allowedLikeDislike.getText().toString();
+                    case R.id.second_buttons_enjoy:
+                        buttonsEnjoyChoice = buttonsEnjoy.getText().toString();
                         break;
-                    case R.id.third_allowed_like_dislike:
-                        allowedLikeDislikeChoice = allowedLikeDislike.getText().toString();
+                    case R.id.third_buttons_enjoy:
+                        buttonsEnjoyChoice = buttonsEnjoy.getText().toString();
                         break;
-                    case R.id.fourth_allowed_like_dislike:
-                        allowedLikeDislikeChoice = allowedLikeDislike.getText().toString();
+                    case R.id.fourth_buttons_enjoy:
+                        buttonsEnjoyChoice = buttonsEnjoy.getText().toString();
                         break;
-                    case R.id.fifth_allowed_like_dislike:
-                        allowedLikeDislikeChoice = allowedLikeDislike.getText().toString();
+                    case R.id.fifth_buttons_enjoy:
+                        buttonsEnjoyChoice = buttonsEnjoy.getText().toString();
                         break;
-                    case R.id.sixth_allowed_like_dislike:
-                        allowedLikeDislikeChoice = allowedLikeDislike.getText().toString();
+                    case R.id.sixth_buttons_enjoy:
+                        buttonsEnjoyChoice = buttonsEnjoy.getText().toString();
                         break;
                     default: break;
                 }
             }
         });
 
-        final RadioGroup happyWithGeneratedProfileGroup = v.findViewById(R.id.happy_with_generated_profile_group);
-        happyWithGeneratedProfileGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        final RadioGroup preferSwipingGroup = v.findViewById(R.id.prefer_swiping_group);
+        preferSwipingGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                happyWithGeneratedProfile = happyWithGeneratedProfileGroup.findViewById(checkedId);
+                swipingPrefer = preferSwipingGroup.findViewById(checkedId);
 
                 switch (checkedId) {
-                    case R.id.first_happy_with_generated_profile:
-                        happyWithGeneratedProfileChoice = happyWithGeneratedProfile.getText().toString();
+                    case R.id.first_prefer_swiping:
+                        swipingPreferChoice = swipingPrefer.getText().toString();
                         break;
-                    case R.id.second_happy_with_generated_profile:
-                        happyWithGeneratedProfileChoice = happyWithGeneratedProfile.getText().toString();
+                    case R.id.second_prefer_swiping:
+                        swipingPreferChoice = swipingPrefer.getText().toString();
                         break;
-                    case R.id.third_happy_with_generated_profile:
-                        happyWithGeneratedProfileChoice = happyWithGeneratedProfile.getText().toString();
+                    case R.id.third_prefer_swiping:
+                        swipingPreferChoice = swipingPrefer.getText().toString();
                         break;
-                    case R.id.fourth_happy_with_generated_profile:
-                        happyWithGeneratedProfileChoice = happyWithGeneratedProfile.getText().toString();
+                    case R.id.fourth_prefer_swiping:
+                        swipingPreferChoice = swipingPrefer.getText().toString();
                         break;
-                    case R.id.fifth_happy_with_generated_profile:
-                        happyWithGeneratedProfileChoice = happyWithGeneratedProfile.getText().toString();
+                    case R.id.fifth_prefer_swiping:
+                        swipingPreferChoice = swipingPrefer.getText().toString();
                         break;
-                    case R.id.sixth_happy_with_generated_profile:
-                        happyWithGeneratedProfileChoice = happyWithGeneratedProfile.getText().toString();
+                    case R.id.sixth_prefer_swiping:
+                        swipingPreferChoice = swipingPrefer.getText().toString();
+                        break;
+                    default: break;
+                }
+            }
+        });
+
+        final RadioGroup easyToTellGroup = v.findViewById(R.id.easy_to_tell_group);
+        easyToTellGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                easyToTell = easyToTellGroup.findViewById(checkedId);
+
+                switch (checkedId) {
+                    case R.id.first_easy_to_tell:
+                        easyToTellChoice = easyToTell.getText().toString();
+                        break;
+                    case R.id.second_easy_to_tell:
+                        easyToTellChoice = easyToTell.getText().toString();
+                        break;
+                    case R.id.third_easy_to_tell:
+                        easyToTellChoice = easyToTell.getText().toString();
+                        break;
+                    case R.id.fourth_easy_to_tell:
+                        easyToTellChoice = easyToTell.getText().toString();
+                        break;
+                    case R.id.fifth_easy_to_tell:
+                        easyToTellChoice = easyToTell.getText().toString();
+                        break;
+                    case R.id.sixth_easy_to_tell:
+                        easyToTellChoice = easyToTell.getText().toString();
                         break;
                     default: break;
                 }
@@ -304,29 +326,59 @@ public class FeedbackFragment extends Fragment {
             }
         });
 
-        final RadioGroup familiarWithSystemGroup = v.findViewById(R.id.familiar_with_system_group);
+        final RadioGroup adequateLayoutGroup = v.findViewById(R.id.adequate_layout_group);
+        adequateLayoutGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                adequateLayout = adequateLayoutGroup.findViewById(checkedId);
+
+                switch (checkedId) {
+                    case R.id.first_adequate_layout:
+                        adequateLayoutChoice = adequateLayout.getText().toString();
+                        break;
+                    case R.id.second_adequate_layout:
+                        adequateLayoutChoice = adequateLayout.getText().toString();
+                        break;
+                    case R.id.third_adequate_layout:
+                        adequateLayoutChoice = adequateLayout.getText().toString();
+                        break;
+                    case R.id.fourth_adequate_layout:
+                        adequateLayoutChoice = adequateLayout.getText().toString();
+                        break;
+                    case R.id.fifth_adequate_layout:
+                        adequateLayoutChoice = adequateLayout.getText().toString();
+                        break;
+                    case R.id.sixth_adequate_layout:
+                        adequateLayoutChoice = adequateLayout.getText().toString();
+                        break;
+                    default: break;
+                }
+            }
+        });
+
+        final RadioGroup familiarWithSystemGroup = v.findViewById(R.id.became_familiar_group);
         familiarWithSystemGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 familiarWithSystem = familiarWithSystemGroup.findViewById(checkedId);
 
                 switch (checkedId) {
-                    case R.id.first_familiar_with_system:
+                    case R.id.first_became_familiar:
                         familiarWithSystemChoice = familiarWithSystem.getText().toString();
                         break;
-                    case R.id.second_familiar_with_system:
+                    case R.id.second_became_familiar:
                         familiarWithSystemChoice = familiarWithSystem.getText().toString();
                         break;
-                    case R.id.third_familiar_with_system:
+                    case R.id.third_became_familiar:
                         familiarWithSystemChoice = familiarWithSystem.getText().toString();
                         break;
-                    case R.id.fourth_familiar_with_system:
+                    case R.id.fourth_became_familiar:
                         familiarWithSystemChoice = familiarWithSystem.getText().toString();
                         break;
-                    case R.id.fifth_familiar_with_system:
+                    case R.id.fifth_became_familiar:
                         familiarWithSystemChoice = familiarWithSystem.getText().toString();
                         break;
-                    case R.id.sixth_familiar_with_system:
+                    case R.id.sixth_became_familiar:
                         familiarWithSystemChoice = familiarWithSystem.getText().toString();
                         break;
                     default: break;
@@ -364,59 +416,29 @@ public class FeedbackFragment extends Fragment {
             }
         });
 
-        final RadioGroup understoodProfileGroup = v.findViewById(R.id.understood_profile_group);
-        understoodProfileGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+        final RadioGroup satisfiedGroup = v.findViewById(R.id.satisfied_group);
+        satisfiedGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                understoodProfile = understoodProfileGroup.findViewById(checkedId);
+                satisfaction = satisfiedGroup.findViewById(checkedId);
 
                 switch (checkedId) {
-                    case R.id.first_understood_profile:
-                        understoodProfileChoice = understoodProfile.getText().toString();
-                        break;
-                    case R.id.second_understood_profile:
-                        understoodProfileChoice = understoodProfile.getText().toString();
-                        break;
-                    case R.id.third_understood_profile:
-                        understoodProfileChoice = understoodProfile.getText().toString();
-                        break;
-                    case R.id.fourth_understood_profile:
-                        understoodProfileChoice = understoodProfile.getText().toString();
-                        break;
-                    case R.id.fifth_understood_profile:
-                        understoodProfileChoice = understoodProfile.getText().toString();
-                        break;
-                    case R.id.understood_profile_group:
-                        understoodProfileChoice = understoodProfile.getText().toString();
-                        break;
-                    default: break;
-                }
-            }
-        });
-
-        final RadioGroup satisfactionGroup = v.findViewById(R.id.satisfaction_group);
-        satisfactionGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                satisfaction = satisfactionGroup.findViewById(checkedId);
-
-                switch (checkedId) {
-                    case R.id.first_satisfaction:
+                    case R.id.first_satisfied:
                         satisfactionChoice = satisfaction.getText().toString();
                         break;
-                    case R.id.second_satisfaction:
+                    case R.id.second_satisfied:
                         satisfactionChoice = satisfaction.getText().toString();
                         break;
-                    case R.id.third_satisfaction:
+                    case R.id.third_satisfied:
                         satisfactionChoice = satisfaction.getText().toString();
                         break;
-                    case R.id.fourth_satisfaction:
+                    case R.id.fourth_satisfied:
                         satisfactionChoice = satisfaction.getText().toString();
                         break;
-                    case R.id.fifth_satisfaction:
+                    case R.id.fifth_satisfied:
                         satisfactionChoice = satisfaction.getText().toString();
                         break;
-                    case R.id.sixth_satisfaction:
+                    case R.id.sixth_satisfied:
                         satisfactionChoice = satisfaction.getText().toString();
                         break;
                     default: break;
@@ -460,64 +482,72 @@ public class FeedbackFragment extends Fragment {
 
 
 
+        //warnings if the user has left a required field unchecked
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = editTextName.getText().toString();
-                String feedback = editTextFeedback.getText().toString();
                 if (genderGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    genderGroup.getParent().requestChildFocus(genderGroup, genderGroup);
+                    focusOnView(scrollView, genderGroup);
                 }
-                if (ageGroupGroup.getCheckedRadioButtonId() == -1) {
+                else if (ageGroupGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    ageGroupGroup.getParent().requestChildFocus(ageGroupGroup, ageGroupGroup);
+                    focusOnView(scrollView, ageGroupGroup);
                 }
-                if (generatedProfileMatchChoicesGroup.getCheckedRadioButtonId() == -1) {
+                else if (attractiveImagesGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    generatedProfileMatchChoicesGroup.getParent().requestChildFocus(generatedProfileMatchChoicesGroup, generatedProfileMatchChoicesGroup);
+                    focusOnView(scrollView, attractiveImagesGroup);
                 }
-                if (choiceImagesAppealGroup.getCheckedRadioButtonId() == -1) {
+                else if (generatedProfileMatchedChoicesGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    choiceImagesAppealGroup.getParent().requestChildFocus(choiceImagesAppealGroup, choiceImagesAppealGroup);
+                    focusOnView(scrollView, generatedProfileMatchedChoicesGroup);
                 }
-                if (manipulatedPicturesEnjoyGroup.getCheckedRadioButtonId() == -1) {
+                else if (swipingEnjoyGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    manipulatedPicturesEnjoyGroup.getParent().requestChildFocus(manipulatedPicturesEnjoyGroup, manipulatedPicturesEnjoyGroup);
-                } if (allowedLikeDislikeGroup.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    allowedLikeDislikeGroup.getParent().requestChildFocus(allowedLikeDislikeGroup, allowedLikeDislikeGroup);
+                    focusOnView(scrollView, swipingEnjoyGroup);
                 }
-                if (happyWithGeneratedProfileGroup.getCheckedRadioButtonId() == -1) {
+                else if (buttonsEnjoyGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    happyWithGeneratedProfileGroup.getParent().requestChildFocus(happyWithGeneratedProfileGroup, happyWithGeneratedProfileGroup);
+                    focusOnView(scrollView, buttonsEnjoyGroup);
                 }
-                if (attractiveLayoutGroup.getCheckedRadioButtonId() == -1) {
+                else if (preferSwipingGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    attractiveLayoutGroup.getParent().requestChildFocus(attractiveLayoutGroup, attractiveLayoutGroup);
+                    focusOnView(scrollView, preferSwipingGroup);
                 }
-                if (familiarWithSystemGroup.getCheckedRadioButtonId() == -1) {
+                else if (easyToTellGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    familiarWithSystemGroup.getParent().requestChildFocus(familiarWithSystemGroup, familiarWithSystemGroup);
-                } if (inControlGroup.getCheckedRadioButtonId() == -1) {
-                    Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    inControlGroup.getParent().requestChildFocus(inControlGroup, inControlGroup);
+                    focusOnView(scrollView, easyToTellGroup);
                 }
-                if (understoodProfileGroup.getCheckedRadioButtonId() == -1) {
+                else if (attractiveLayoutGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    understoodProfileGroup.getParent().requestChildFocus(understoodProfileGroup, understoodProfileGroup);
+                    focusOnView(scrollView, attractiveLayoutGroup);
                 }
-                if (satisfactionGroup.getCheckedRadioButtonId() == -1) {
+                else if (adequateLayoutGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    satisfactionGroup.getParent().requestChildFocus(satisfactionGroup, satisfactionGroup);
-                } if (useInTheFutureGroup.getCheckedRadioButtonId() == -1) {
+                    focusOnView(scrollView, adequateLayoutGroup);
+                }
+                else if (familiarWithSystemGroup.getCheckedRadioButtonId() == -1) {
                     Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
-                    useInTheFutureGroup.getParent().requestChildFocus(useInTheFutureGroup, useInTheFutureGroup);
+                    focusOnView(scrollView, familiarWithSystemGroup);
+                }
+                else if (inControlGroup.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
+                    focusOnView(scrollView, inControlGroup);
+                }
+                else if (satisfiedGroup.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
+                    focusOnView(scrollView, satisfiedGroup);
+                }
+                else if (useInTheFutureGroup.getCheckedRadioButtonId() == -1) {
+                    Toast.makeText(getContext(), "Please select at least one of the options", Toast.LENGTH_SHORT).show();
+                    focusOnView(scrollView, useInTheFutureGroup);
                 }
                 else {
-                    FeedbackObject feedbackObject = new FeedbackObject(name, feedback, genderChoice, ageGroupChoice,
-                            generatedProfileMatchChoicesChoice, choiceImagesAppealChoice, manipulatedPicturesEnjoyChoice,
-                            allowedLikeDislikeChoice, happyWithGeneratedProfileChoice, attractiveLayoutChoice, familiarWithSystemChoice, inControlChoice, understoodProfileChoice,
+                    FeedbackObject feedbackObject = new FeedbackObject(genderChoice, ageGroupChoice, previousRecommenders.getText().toString(),
+                            attractiveImagesChoice,
+                            generatedProfileMatchedChoicesChoice, swipingEnjoyChoice, buttonsEnjoyChoice, swipingPreferChoice,
+                            easyToTellChoice, attractiveLayoutChoice, adequateLayoutChoice,
+                            familiarWithSystemChoice, inControlChoice,
                             satisfactionChoice, useInTheFutureChoice);
                     databaseReference.push().setValue(feedbackObject);
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, MainActivity.profileFragment).commit();
@@ -526,11 +556,17 @@ public class FeedbackFragment extends Fragment {
         });
         return v;
     }
-
-
-
     public void hideKeyboard(View view) {
         InputMethodManager inputMethodManager = (InputMethodManager) getActivity().getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+    }
+
+    private void focusOnView(final View view, final View view2){
+        view.post(new Runnable() {
+            @Override
+            public void run() {
+                view.scrollTo(0, view2.getTop());
+            }
+        });
     }
 }
