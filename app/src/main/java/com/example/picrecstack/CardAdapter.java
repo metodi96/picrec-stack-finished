@@ -18,9 +18,7 @@ public class CardAdapter extends ArrayAdapter<Integer> {
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView imageView = convertView.findViewById(R.id.picture_id);
         imageView.setImageResource(getItem(position));
-        imageView.bringToFront();
         imageView.setClipToOutline(true);
-        imageView.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.rounded_shape));
         return convertView;
     }
 }

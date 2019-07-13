@@ -8,14 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import com.tooltip.Tooltip;
 import com.wenchao.cardstack.CardStack;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class InspirationsFragment extends Fragment {
-    private Tooltip tooltip;
     private HashMap<String, Integer> rolesToPoints = new HashMap<String, Integer>() {{
         put("actionseek1", 0);
         put("active1", 0);
@@ -49,43 +47,6 @@ public class InspirationsFragment extends Fragment {
             cardStack = v.findViewById(R.id.card_stack);
             cardStack.setContentResource(R.layout.pictures_inspirations);
             cardStack.setAdapter(cardAdapter);
-            cardStack.bringToFront();
-            cardStack.setClipToOutline(true);
-            ImageButton unlike = v.findViewById(R.id.unlike);
-            unlike.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    cardStack.discardTop(2);
-                    counter++;
-                    points.add(0);
-                    savePoints(counter);
-                }
-            });
-        ImageButton like = v.findViewById(R.id.like);
-        like.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                cardStack.discardTop(3);
-                counter++;
-                points.add(1);
-                savePoints(counter);
-            }
-        });
-
-        ImageButton undo = v.findViewById(R.id.undo);
-        undo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (counter > 0) {
-                    cardStack.reset(true);
-                    for (int i = 0; i<counter; i++) {
-                        points.remove(0);
-                    }
-                    counter=0;
-                    savePoints(counter);
-                }
-            }
-        });
 
             cardStack.setListener(new CardStack.CardEventListener() {
                 @Override
@@ -129,6 +90,39 @@ public class InspirationsFragment extends Fragment {
 
                 }
             });
+
+        ImageButton dislike = v.findViewById(R.id.dislike);
+        dislike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardStack.discardTop(2);
+                counter++;
+                points.add(0);
+                savePoints(counter);
+            }
+        });
+        ImageButton like = v.findViewById(R.id.like);
+        like.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cardStack.discardTop(3);
+                counter++;
+                points.add(1);
+                savePoints(counter);
+            }
+        });
+
+        ImageButton reset = v.findViewById(R.id.reset);
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (counter > 0) {
+                    cardStack.reset(true);
+                    points.removeAll(points);
+                    counter=0;
+                }
+            }
+        });
         return v;
     }
 

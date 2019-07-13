@@ -12,6 +12,5 @@
         android:src="@drawable/sun1"
         android:scaleType="centerCrop"
         android:background="@drawable/rounded_shape"
-        android:outlineProvider="background"
         />
 </LinearLayout>

@@ -28,17 +28,17 @@
         android:orientation="horizontal">
 
         <ImageButton
-            android:id="@+id/unlike"
+            android:id="@+id/dislike"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="5sp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:layout_marginEnd="50sp"
-            android:src="@drawable/unlike_64" />
+            android:src="@drawable/dislike_64" />
 
         <ImageButton
-            android:id="@+id/undo"
+            android:id="@+id/reset"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="5sp"
